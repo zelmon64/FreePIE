@@ -4,7 +4,7 @@
 
     <OutputTemp>$(OutputTemp)</OutputTemp>
     <Lib>$(Lib)</Lib>
-    <Help>$(Help)</Help>  
+    <Help>$(Help)</Help>
 
   </PropertyGroup>
 
@@ -93,7 +93,8 @@
                       $(Lib)\VJoy\*.dll;
                       $(Lib)\Sixense\Emulation\Binary\*.dll;
                       $(Lib)\Midi\*.dll;
-											$(Lib)\Tobii\*.dll">
+											$(Lib)\Tobii\*.dll;
+											$(Lib)\PSMove\*.dll">
       </DependecieFiles>
     </ItemGroup>
     <Copy SourceFiles="@(DependecieFiles)" DestinationFiles="@(DependecieFiles -> '$(BuildDir)\%(Filename)%(Extension)')"/>
