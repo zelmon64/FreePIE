@@ -15,7 +15,7 @@ namespace FreePIE.Core.Plugins
     [GlobalType(Type = typeof(PSMoveGlobal), IsIndexed = true)]
     public class PSMovePlugin : Plugin
     {
-        private Dictionary<int, PSMoveGlobalHolder> globalHolders; 
+        private Dictionary<int, PSMoveGlobalHolder> globalHolders;
 
         public override object CreateGlobal()
         {
@@ -46,6 +46,7 @@ namespace FreePIE.Core.Plugins
         public override void Stop()
         {
             Api.unsubscribeMove();
+            Api.close();
         }
 
         private void MoveUpdateCallback(int id, Api.Vector3 position, Api.Quaternion orientation, int trigger)
@@ -195,7 +196,6 @@ namespace FreePIE.Core.Plugins
 
 
         public double yaw { get; internal set; }
-    
         public double pitch { get; internal set; }
         public double roll { get; internal set; }
 
