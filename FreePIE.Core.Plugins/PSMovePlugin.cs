@@ -167,9 +167,9 @@ namespace FreePIE.Core.Plugins
 
             quaternion.Update(q.w, q.x, q.y, q.z);
 
-            Global.yaw = quaternion.Yaw;
-            Global.pitch = quaternion.Pitch;
-            Global.roll = quaternion.Roll;
+            Global.yaw = quaternion.Pitch;
+            Global.pitch = quaternion.Roll;
+            Global.roll = quaternion.Yaw;
 
             Global.trigger = trigger;
 
