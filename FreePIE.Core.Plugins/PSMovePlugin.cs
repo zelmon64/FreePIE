@@ -225,7 +225,7 @@ namespace FreePIE.Core.Plugins
         {
             return plugin.NavButtonHandler.IsButtonPressed(button);
         }
-        /*
+
         public void setRumble(int id, int value)
         {
             Api.setRumble(id, value); // 0 to 255
