@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Threading;
 using System.Windows.Forms;
 using FreePIE.Core.Contracts;
 using FreePIE.Core.Plugins.Globals;
@@ -217,12 +218,23 @@ namespace FreePIE.Core.Plugins
 
         public bool getNavDown(MoveButton button)
         {
-            return plugin.ButtonHandler.IsButtonDown(button);
+            return plugin.NavButtonHandler.IsButtonDown(button);
         }
 
         public bool getNavPressed(MoveButton button)
         {
-            return plugin.ButtonHandler.IsButtonPressed(button);
+            return plugin.NavButtonHandler.IsButtonPressed(button);
         }
+        /*
+        public void setRumble(int id, int value)
+        {
+            Api.setRumble(id, value); // 0 to 255
+        }
+        /*
+        public void setColour(int id, int r, int g, int b)
+        {
+            Api.setColour(id, r, g, b); //  "each component is 0x00 to 0xFF", 0 to 255
+        }
+        */
     }
 }
