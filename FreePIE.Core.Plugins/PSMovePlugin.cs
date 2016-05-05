@@ -134,13 +134,55 @@ namespace FreePIE.Core.Plugins
             buttonState[(MoveButton)keyCode] = true;
         }
     }
+    /*
+    public class MoveBatteryHandler
+    {
+        private readonly Dictionary<PSMove_Battery_Level, string> batteryLevel = new Dictionary<PSMove_Battery_Level, string>();
+        private readonly GetPressedStrategy<MoveButton> getPressedStrategy;
+
+        public MoveBatteryHandler()
+        {
+            //getPressedStrategy = new GetPressedStrategy<MoveButton>(IsButtonDown);
+        }
+
+
+        public string getBatteryLevel(PSMove_Battery_Level level)
+        {
+            //batteryLevel.ContainsKey(level);
+            return Enum.GetName(typeof(PSMove_Battery_Level), level);
+        }
+
+        /*
+        public bool IsButtonDown(MoveButton button)
+        {
+            return buttonState.ContainsKey(button) && buttonState[button];
+        }
+
+        public bool IsButtonPressed(MoveButton button)
+        {
+            return getPressedStrategy.IsPressed(button);
+        }
+
+        public void KeyUpUpdate(int keyCode)
+        {
+            buttonState[(MoveButton)keyCode] = false;
+        }
+
+        public void KeyDownUpdate(int keyCode)
+        {
+            buttonState[(MoveButton)keyCode] = true;
+        }/
+    }*/
 
     public class PSMoveGlobalHolder : IUpdatable
     {
         private readonly Quaternion quaternion = new Quaternion();
         private readonly MoveButtonHandler buttonHandler = new MoveButtonHandler();
         public MoveButtonHandler ButtonHandler { get { return buttonHandler; } }
-
+        /*
+        private readonly MoveBatteryHandler batteryHandler = new MoveBatteryHandler();
+        public MoveBatteryHandler BatteryHandler { get { return batteryHandler; } }
+        */
         private readonly MoveButtonHandler navButtonHandler = new MoveButtonHandler();
         public MoveButtonHandler NavButtonHandler { get { return navButtonHandler; } }
 
@@ -173,6 +215,8 @@ namespace FreePIE.Core.Plugins
             Global.roll = quaternion.Yaw;
 
             Global.trigger = trigger;
+
+            //Global.battery = battery;
 
             NewData = true;
         }
@@ -230,6 +274,14 @@ namespace FreePIE.Core.Plugins
         {
             Api.setRumble(id, value); // 0 to 255
         }
+
+        public int  getBattery(int id)
+        {
+            return Api.getBatteryValue(id); 
+        }
+
+        //public string battery { get; internal set; }
+
         /*
         public void setColour(int id, int r, int g, int b)
         {
