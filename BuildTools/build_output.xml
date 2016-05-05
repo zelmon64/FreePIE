@@ -94,7 +94,8 @@
                       $(Lib)\Sixense\Emulation\Binary\*.dll;
                       $(Lib)\Midi\*.dll;
 											$(Lib)\Tobii\*.dll;
-											$(Lib)\PSMove\*.dll">
+											$(Lib)\PSMove\*.dll;
+											$(Lib)\PSMove\settings.cfg">
       </DependecieFiles>
     </ItemGroup>
     <Copy SourceFiles="@(DependecieFiles)" DestinationFiles="@(DependecieFiles -> '$(BuildDir)\%(Filename)%(Extension)')"/>
