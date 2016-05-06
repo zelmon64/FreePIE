@@ -83,6 +83,7 @@ namespace FreePIE.Core.Plugins.PSMove
         public static extern void unsubscribeMove();
         [DllImport("MF_CWrapper.dll")]
         private static extern void subscribeMove(MoveUpdateCallback updateCallback, MoveKeyCallback keyDownCallback, MoveKeyCallback keyUpCallback, NavUpdateCallback navCallback, MoveKeyCallback navKeyDown, MoveKeyCallback navKeyUp);
+        /*
         [DllImport("MF_CWrapper.dll")]
         [return: MarshalAs(UnmanagedType.Struct)]
         public static extern Quaternion getOrientation(int id);
@@ -91,8 +92,9 @@ namespace FreePIE.Core.Plugins.PSMove
         public static extern Vector3 getPosition(int id);
         [DllImport("MF_CWrapper.dll")]
         public static extern bool getButtonState(int id, [MarshalAs(UnmanagedType.I4)] MoveButton keyId);
-        [DllImport("MF_CWrapper.dll")]
-        public static extern int getTriggerValue(int id);
+        */
+        //[DllImport("MF_CWrapper.dll")]
+        //public static extern int getTriggerValue(int id);
         [DllImport("MF_CWrapper.dll")]
         public static extern int getBatteryValue(int id);
         [DllImport("MF_CWrapper.dll")]
